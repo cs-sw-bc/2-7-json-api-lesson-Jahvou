@@ -33,6 +33,33 @@
         "petsOwned": 2
       }
     }`;
+    // Json can take numbers, booleans, arrays, objects, strings and other json objects
+    const obj = {
+      name: "Whiskers",
+      age: 3,
+      isFriendly: true,// javascript object
+      favoriteFoods: ["tuna", "salmon", "catnip"],
+      owner: {
+        firstName: "Alex",
+        lastName: "Ramos",
+        petsOwned: 2
+      }
+    }
+
+
+    // Step 1: convert json to javascript object. only then will it become usable.
+    let recievedObject = JSON.parse(jsonData);
+    recievedObject.owner.firstName = "Jahvou";
+    recievedObject.occupation = "Engineer";
+
+
+    // before sending it back to the server, convert it back to json string
+    let updatedJSON = JSON.stringify(recievedObject);
+    let newJSON = JSON.stringify(obj);
+
+    /* Difference:
+    1. Single quote at the top- jsonData variables is a string
+    2. Double quotes for names*/
 
     console.log("Raw JSON (as text):");
     console.log(jsonData);
